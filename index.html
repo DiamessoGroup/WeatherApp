@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--CSS3-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!--Bootstrap-->
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Angular-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://rawgithub.com/arunisrael/angularjs-geolocation/master/dist/angularjs-geolocation.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" rel="stylesheet">
+
+    <link href="css/weather-icons.min.css" rel="stylesheet">
+    <link href="css/weather-icons-wind.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+
+    <title>Weather App by Krishna Diamesso</title>
+
+    <!--
+    Weather: 
+http://fa2png.io/r/weather-icons/
+https://erikflowers.github.io/weather-icons/api-list.html
+https://erikflowers.github.io/weather-icons/
+-->
+</head>
+
+<body class="w3-orange">
+    <div ng-app="weatherApp" ng-controller="weatherCtrl" ng-cloak>
+        <br>
+        <div class="w3-center" >
+            <p class="w3-xlarge">{{cityName | uppercase}}</p>
+            <p style="font-size:50px" id="temperature">{{temperatureC | number: 0}} {{celsius}}</p>
+            <!--<img ng-src="{{iconUrl}}">-->
+            <i class="wi {{iconGif}}"></i>
+            <p class="capitalize">{{weatherDesc}}</p>
+            <!--<i class="wi owm-50n"></i>-->
+            <!--<i class="wi wi-yahoo-23"></i> appears before loading-->
+
+            <p id="info">Your Weather Information will load shortly after you have approved the geolocation on your browser.</p>
+
+            <div class="w3-content w3-row" style="width:75%">
+                <div class="w3-col s6 l6 m6 w3-container w3-center">
+                    <i class="wi {{humidityIcon}}"></i>
+                    <!--<img ng-src="{{humidityIcon}}" class="icon">--><br><br>
+                    <p>{{humidity}}</p>
+                </div>
+
+                <div class="w3-col s6 l6 m6 w3-container w3-center">
+                    <i class="wi {{windIcon}}"></i>
+                    <!--<img ng-src="{{windIcon}}" class="icon">--><br><br>
+                    <p>{{wind}}</p>
+                </div>
+            </div>
+
+            <div>
+                <span class="w3-margin-right"><i class="wi {{wiFahrenheit}}"></i></span>
+                <label class="switch">
+                  <input type="checkbox" checked ng-click="changeTemp()">
+                  <div class="{{sliderRound}}"></div>
+                </label>
+                <span class="w3-margin-left"><i class="wi {{wiCelsius}}"></i></span>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
